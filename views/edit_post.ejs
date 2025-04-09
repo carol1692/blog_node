@@ -1,0 +1,32 @@
+<%-include("includes/base.ejs")%>
+<%-include("includes/header.ejs")%>
+	
+<div class="container">
+    <div class="row">
+            <div class="col-12 content"> 
+                <div class="row px-2 pb-2 card"> 
+                    <form action="/edit_post/<%= id_post %>" method="post">
+                        <div class="mt-3">
+                            <label for="update_title" class="form-label">Title:</label>
+                            <input type="text" class="form-control" name="update_title" value="<%= posts_data.posts[id_post].title %>">
+                        </div>
+                        <div class="mt-3">
+                            <label for="update_subtitle" class="form-label">Subtitle:</label>
+                            <input type="text" class="form-control" name="update_subtitle" value="<%= posts_data.posts[id_post].subtitle %>">
+                        </div>
+                        <div class="mt-3">
+                            <label for="update_text" class="form-label">Text:</label>
+                            <textarea class="form-control" name="update_text" rows="10"><%= posts_data.posts[id_post].text  %></textarea>
+                        </div>
+                        <div class="mt-3">
+                            <button class="btn vermelho">Submit</button>
+                        </div>
+                        
+                    </form>
+
+                </div>	
+            </div>
+    </div> 
+</div>
+
+<%-include("includes/footer.ejs")%>

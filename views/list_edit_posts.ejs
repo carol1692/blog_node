@@ -1,0 +1,42 @@
+<%-include("includes/base.ejs")%>
+<%-include("includes/header.ejs")%>
+
+<div class="container">
+    <% if( locals.posts_data ){ %>
+    <div class="row" >
+            <div class="col-12 content"> 
+                <div class="row px-2"> 
+                    <ul class="posts-list" >
+                        <% if (posts_data.posts.length > 0) { %>
+                            <% for (const key in posts_data.posts) { %>
+                                    <li class="card">
+                                        <div class="row"> 
+                                            <div class="col"><a href="/posts/<%= key %>"><%= posts_data.posts[key].title%></a> </div>
+                                        <div class="col-1 text-end">
+                                            <a href="/edit_post/<%= key %>"><span class="material-symbols-outlined"> edit_document </span> </a>
+                                        </div>
+                                        <div class="col-1">
+                                            <a href="/delete/<%= key %>"><span class="material-symbols-outlined"> delete </span> </a>
+                                        </div>
+                                            
+                                        </div>
+                                        
+                                    </li>
+                            <% } %>
+                        <% } else { %>
+                            <li class="card">
+                                <div class="row"> 
+                                    <h1> No posts yet </h1>
+                                </div>
+                                
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+    </div> 
+    <% } else { %>  
+        No posts yet
+    <% } %>   
+</div>
+<%-include("includes/footer.ejs")%>
